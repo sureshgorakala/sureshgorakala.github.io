@@ -1,75 +1,53 @@
-<html>
-  <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+<head>
+<script>
+var xmlHttp = null;
 
-      // Load Charts and the corechart package.
-      google.charts.load('current', {'packages':['corechart']});
+function GetCustomerInfo()
+{
+    //var CustomerNumber = document.getElementById( "click" ).value;
+    //alert(CustomerNumber);
+    //var myKey = 'ttes';
+    var Url = "http://sureshgorakala.github.io/profileinfo.json"
 
-      // Draw the pie chart for Sarah's pizza when Charts is loaded.
-      google.charts.setOnLoadCallback(drawSarahChart);
+    xmlHttp = new XMLHttpRequest(); 
+    xmlHttp.onreadystatechange = ProcessRequest;
+    xmlHttp.open( "GET", Url, true );
+    xmlHttp.send( null );
+}
 
-      // Draw the pie chart for the Anthony's pizza when Charts is loaded.
-      google.charts.setOnLoadCallback(drawAnthonyChart);
+function ProcessRequest() 
+{
+    if ( xmlHttp.readyState == 4 && xmlHttp.status == 200 || xmlHttp.status == 304) 
+    {
+        if ( xmlHttp.responseText == "Not found" ) 
+        {
+            document.getElementById( "TextBoxCustomerName"    ).value = "Not found";
+            document.getElementById( "TextBoxCustomerAddress" ).value = "";
+        }
+        else
+        {
+            var info = eval ( '(' + xmlHttp.responseText + ')' );
+			// No parsing necessary with JSON!        
+            document.getElementById( "Description" ).innerHTML = info.description;
+			document.getElementById( "statusesCount" ).innerHTML = info.statusesCount;
+			document.getElementById( "followersCount" ).innerHTML = info.followersCount;
+			document.getElementById( "friendsCount" ).innerHTML = info.friendsCount;
+			document.getElementById( "listedCount" ).innerHTML = info.listedCount;
+			document.getElementById( "profileImageUrl" ).innerHTML = info.profileImageUrl;
+        }                    
+    }
+}
+</script>
+</head>
+<body>
 
-      // Callback that draws the pie chart for Sarah's pizza.
-      function drawSarahChart() {
-
-        // Create the data table for Sarah's pizza.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
-        data.addRows([
-          ['Mushrooms', 1],
-          ['Onions', 1],
-          ['Olives', 2],
-          ['Zucchini', 2],
-          ['Pepperoni', 1]
-        ]);
-
-        // Set options for Sarah's pie chart.
-        var options = {title:'How Much Pizza Sarah Ate Last Night',
-                       width:400,
-                       height:300};
-
-        // Instantiate and draw the chart for Sarah's pizza.
-        var chart = new google.visualization.PieChart(document.getElementById('Sarah_chart_div'));
-        chart.draw(data, options);
-      }
-
-      // Callback that draws the pie chart for Anthony's pizza.
-      function drawAnthonyChart() {
-
-        // Create the data table for Sarah's pizza.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
-        data.addRows([
-          ['Mushrooms', 2],
-          ['Onions', 2],
-          ['Olives', 2],
-          ['Zucchini', 0],
-          ['Pepperoni', 3]
-        ]);
-
-        // Set options for Anthony's pie chart.
-        var options = {title:'How Much Pizza Anthony Ate Last Night',
-                       width:400,
-                       height:300};
-
-        // Instantiate and draw the chart for Sarah's pizza.
-        var chart = new google.visualization.PieChart(document.getElementById('Anthony_chart_div'));
-        chart.draw(data, options);
-      }
-    </script>
-  </head>
-  <body>
-    <!--Table and divs that hold the pie charts-->
-    <table class="columns">
-      <tr>
-        <td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
-        <td><div id="Anthony_chart_div" style="border: 1px solid #ccc"></div></td>
-      </tr>
-    </table>
-  </body>
-</html>
+<button id="click" onclick="GetCustomerInfo()">Get Profile Info</button>
+<br>
+<label>Description:</label><div id="Description"></div>
+<label>Status Count:</label><div id="statusesCount"></div>
+<label>Followers Count:</label><div id="followersCount"></div>
+<label>Friends Count:</label><div id="friendsCount"></div>
+<label>Listed Count:</label><div id="listedCount"></div>
+<label>Profile Image:</label><div id="profileImageUrl"></div>
+</div>
+</body>
