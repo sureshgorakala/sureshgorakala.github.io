@@ -1,50 +1,6 @@
 <head>
 <script>
-var xmlHttp = null;
-
-function GetCustomerInfo()
-{
-    //var CustomerNumber = document.getElementById( "click" ).value;
-    //alert(CustomerNumber);
-    //var myKey = 'ttes';
-    var Url = "http://sureshgorakala.github.io/profileinfo.json"
-
-    xmlHttp = new XMLHttpRequest(); 
-    xmlHttp.onreadystatechange = ProcessRequest;
-    xmlHttp.open( "GET", Url, true );
-    xmlHttp.send( null );
-}
-
-function ProcessRequest() 
-{
-    if ( xmlHttp.readyState == 4 && xmlHttp.status == 200 || xmlHttp.status == 304) 
-    {
-        if ( xmlHttp.responseText == "Not found" ) 
-        {
-            document.getElementById( "TextBoxCustomerName"    ).value = "Not found";
-            document.getElementById( "TextBoxCustomerAddress" ).value = "";
-        }
-        else
-        {
-            var info = eval ( '(' + xmlHttp.responseText + ')' );
-			// No parsing necessary with JSON!        
-            document.getElementById( "Description" ).innerHTML = info.description;
-			document.getElementById( "statusesCount" ).innerHTML = info.statusesCount;
-			document.getElementById( "followersCount" ).innerHTML = info.followersCount;
-			document.getElementById( "friendsCount" ).innerHTML = info.friendsCount;
-			document.getElementById( "listedCount" ).innerHTML = info.listedCount;
-			document.getElementById( "profileImageUrl" ).innerHTML = info.profileImageUrl;
-        }                    
-    }
-}
 </script>
 </head>
-<body onload="GetCustomerInfo()">
-<label>Description:</label><div id="Description"></div>
-<label>Status Count:</label><div id="statusesCount"></div>
-<label>Followers Count:</label><div id="followersCount"></div>
-<label>Friends Count:</label><div id="friendsCount"></div>
-<label>Listed Count:</label><div id="listedCount"></div>
-<label>Profile Image:</label><div id="profileImageUrl"></div>
-</div>
+<body >
 </body>
