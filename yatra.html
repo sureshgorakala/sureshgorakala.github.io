@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+ function showhide(id) {
+    var e = document.getElementById(id);
+    e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+ }
+</script>
+
+ <style>
+
+Search {
+  display: block;
+  background-color: #dddddd;
+  padding: 50px;
+  font-size: 30px;
+}
+
+Results {
+  display: block;
+  background-color: #dddddd;
+  padding: 50px;
+  font-size: 25px;
+}
+
+  </style>
+
+
+
+
+</head>
+<body>
+
+
+   <h2>Enter your free text</h2>
+<Search>
+  <div style="display: flex;">
+    <input type="text" style="width:80%;height:40px" />
+    <button type="submit" onClick="showhide('uniquename')">
+      <img src="search.png" />
+    </button>
+  </div>
+</Search>
+<Results>
+<div id="uniquename" style="display:none;">
+  <p>
+    { SOURCE: KOC, DESTINATION: HYD, FLIGHT TRIP:ROUND TRIP, FROM DATE:12-10-2016, TO DATE: 15-10-2016 }
+  </p></div>
+</Results>
+
+</body>
+</html>
