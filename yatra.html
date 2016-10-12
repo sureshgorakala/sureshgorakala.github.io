@@ -1,6 +1,17 @@
+
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="author" content="SemiColonWeb" />
+
+  <!-- Stylesheets -->
+  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Montserrat:400,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="stylesheets/style.css" type="text/css" />
+  <link rel="stylesheet" href="stylesheets/font-icons.css" type="text/css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="stylesheets/custom.css" type="text/css" />
 <script type="text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
@@ -10,18 +21,21 @@
 
  <style>
 
-Search {
+/*Search {
   display: block;
   background-color: #dddddd;
   padding: 50px;
   font-size: 30px;
-}
+}*/
 
 Results {
   display: block;
   background-color: #dddddd;
-  padding: 50px;
+  padding: 10px;
   font-size: 25px;
+}
+form .col-sm-4{
+  min-height: 10px !important;
 }
 
   </style>
@@ -31,23 +45,63 @@ Results {
 
 </head>
 <body>
-
-
-   <h2>Enter your free text</h2>
-<Search>
-  <div style="display: flex;">
-    <input type="text" style="width:80%;height:40px" />
-    <button type="submit" onClick="showhide('uniquename')">
-      <img src="search.png" />
-    </button>
-  </div>
-</Search>
-<Results>
-<div id="uniquename" style="display:none;">
-  <p>
-    { SOURCE: KOC, DESTINATION: HYD, FLIGHT TRIP:ROUND TRIP, FROM DATE:12-10-2016, TO DATE: 15-10-2016 }
-  </p></div>
-</Results>
-
+   <div class = "content-wrap">
+            <div class = "container clearfix">
+              <h4 class = "text-center">Enter your free text</h4>
+              <div class="divcenter">
+                <div class="col-sm-offset-4 col-sm-4 col-xs-offset-4 col-xs-4">
+                    <div class="input-group">
+                      <input type="text" class="form-control norightborder" placeholder="Enter here" name="schedule_date">
+                      <span class="input-group-addon" onClick="showhide('uniquename')"><i class="icon-search"></i></span>
+                    </div>
+                </div>
+              </div>
+            </div>
+      </div>
+     <Results>
+          <div id="uniquename" style="display:block;">
+                <div class="panel panel-default divcenter noborder topmargin-lg" style="max-width: 400px; background-color: rgba(255,255,255,0.93);">
+                  <div class="panel-body" style="padding: 40px;">
+                      <form class="form-horizontal">
+                          <div class="form-group">
+                              <label class="col-sm-4">SOURCE:</label>
+                              <div class="col-sm-8">
+                                <input type="text" name="source" class="form-control"  autocomplete="off"/>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-4">DESTINATION:</label>
+                              <div class="col-sm-8">
+                                  <input type="text" name="destination" class="form-control"  autocomplete="off"/>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-4">FLIGHT TRIP:</label>
+                              <div class="btn-group" data-toggle="buttons">
+                                  <label class="btn btn-default btn-sm active" style="margin-right: 4px;border-radius: 30px;">
+                                    <input type="radio" name="flight_trip" value="1">Round Trip
+                                  </label>
+                                  <label class="btn btn-default btn-sm" style="margin-right: 4px;border-radius: 30px;">
+                                    <input type="radio" name="flight_trip" value="2">One way
+                                  </label>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-4">FROM DATE:</label>
+                              <div class="col-sm-8">
+                                <input type="date" name="from_date" class="form-control"  autocomplete="off"/>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-4">TO DATE:</label>
+                              <div class="col-sm-8">
+                                <input type="date" name="to_date" class="form-control"  autocomplete="off"/>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+    </Results>      
 </body>
 </html>
