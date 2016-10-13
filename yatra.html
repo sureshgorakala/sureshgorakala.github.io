@@ -2,16 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="author" content="SemiColonWeb" />
-
-  <!-- Stylesheets -->
-  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Montserrat:400,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="stylesheets/style.css" type="text/css" />
   <link rel="stylesheet" href="stylesheets/font-icons.css" type="text/css" />
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <link rel="stylesheet" href="stylesheets/custom.css" type="text/css" />
 <script type="text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
@@ -19,7 +12,7 @@
  }
 </script>
 
- <style>
+<style>
 
 /*Search {
   display: block;
@@ -28,19 +21,16 @@
   font-size: 30px;
 }*/
 
-Results {
-  display: block;
-  background-color: #dddddd;
-  padding: 10px;
-  font-size: 25px;
-}
-form .col-sm-4{
-  min-height: 10px !important;
-}
-
-  </style>
-
-
+  Results {
+    display: block;
+    background-color: #dddddd;
+    padding: 10px;
+    font-size: 25px;
+  }
+  form .col-sm-4{
+    min-height: 10px !important;
+  }
+</style>
 
 
 </head>
@@ -49,10 +39,12 @@ form .col-sm-4{
             <div class = "container clearfix">
               <h4 class = "text-center">Enter your free text</h4>
               <div class="divcenter">
-                <div class="col-sm-offset-4 col-sm-4 col-xs-offset-4 col-xs-4">
+                <div class="col-sm-offset-4 col-sm-5 col-xs-offset-4 col-xs-5">
                     <div class="input-group">
+
                       <input type="text" class="form-control norightborder" placeholder="Enter here" name="schedule_date">
-                      <span class="input-group-addon" onClick="showhide('uniquename')"><i class="icon-search"></i></span>
+                      <span class="input-group-addon" onClick="showhide('uniquename')"><i class="icon-search"></i>
+                      </span>
                     </div>
                 </div>
               </div>
