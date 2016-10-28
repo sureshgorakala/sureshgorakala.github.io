@@ -5,13 +5,41 @@
   <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="stylesheets/style.css" type="text/css" />
   <link rel="stylesheet" href="stylesheets/font-icons.css" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
+<script>
 
+var service = 'http://sureshgorakala.github.io/result.json';
+
+$(document).ready(function(){
+
+    jQuery.support.cors = true;
+
+    $.ajax(
+    {
+        type: "GET",
+        url: service,
+        data: "{}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        cache: false,
+        success: function (data) {
+            
+        alert(data);,
+        
+        error: function (msg) {
+            
+            alert(msg.responseText);
+        }
+    });
+})
+
+</script>
 <style>
 
 /*Search {
