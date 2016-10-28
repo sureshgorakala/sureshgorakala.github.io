@@ -34,7 +34,7 @@
 			
             http_request.onreadystatechange = function(){
 
-               if (http_request.readyState == 4  && http_request.responseText.length > 0){
+               if (http_request.readyState == 4 ){
 
                   // Javascript function JSON.parse to parse JSON data
                   var jsonObj = http_request.responseText;
@@ -43,11 +43,12 @@
 		var contact = JSON.parse(jsonObj);
                   // jsonObj variable now contains the data structure and can
                   // be accessed as jsonObj.name and jsonObj.country.
-
+if (jsonObj.length > 10){
                   document.getElementById("source").value = contact.Origin;
                   document.getElementById("destination").value = contact.Desti;
 		  document.getElementById("fromdate").value = contact.fromDate;
 		  document.getElementById("todate").value = contact.toDate;
+}
 		 
                }
             }
