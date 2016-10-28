@@ -38,7 +38,7 @@
 
                   // Javascript function JSON.parse to parse JSON data
                   var jsonObj = http_request.responseText;
-var jsontext = '{"Origin": "Kochi","Desti":"Banglore", "Date":"20-10-2016"}';
+var jsontext = '{"Origin": "Kochi","Desti":"Banglore", "toDate":"20-10-2016","fromDate":"01-10-2016"}';
 
 var contact = JSON.parse(jsontext);
                   // jsonObj variable now contains the data structure and can
@@ -46,8 +46,8 @@ var contact = JSON.parse(jsontext);
 alert(contact.Origin);
                   document.getElementById("source").value = contact.Origin;
                   document.getElementById("destination").value = contact.Desti;
-		  document.getElementById("todate").value = new date();
-		  document.getElementById("todate").value = contact.Date;
+		  document.getElementById("fromdate").value = contact.fromDate;
+		  document.getElementById("todate").value = contact.toDate;
                }
             }
 			
