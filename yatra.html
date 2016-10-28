@@ -34,14 +34,12 @@
 			
             http_request.onreadystatechange = function(){
 
-               if (http_request.readyState == 4  ){
+               if (http_request.readyState == 4  && http_request.responseText.length > 0){
 
                   // Javascript function JSON.parse to parse JSON data
                   var jsonObj = http_request.responseText;
-		      alert(typeof jsonObj);
-		       alert(jsonObj.length);
+
 //var jsontext = '{"Origin": "Kochi","Desti":"Banglore", "toDate":"20-10-2016","fromDate":"01-10-2016"}';
-		if(jsonObj.length > 10){
 		var contact = JSON.parse(jsonObj);
                   // jsonObj variable now contains the data structure and can
                   // be accessed as jsonObj.name and jsonObj.country.
@@ -50,7 +48,7 @@
                   document.getElementById("destination").value = contact.Desti;
 		  document.getElementById("fromdate").value = contact.fromDate;
 		  document.getElementById("todate").value = contact.toDate;
-		 }
+		 
                }
             }
 			
