@@ -41,7 +41,6 @@
 		       alert(jsonObj)
 //var jsontext = '{"Origin": "Kochi","Desti":"Banglore", "toDate":"20-10-2016","fromDate":"01-10-2016"}';
 		var contact = JSON.parse(jsonObj);
-		       alert(contact.Desti)
                   // jsonObj variable now contains the data structure and can
                   // be accessed as jsonObj.name and jsonObj.country.
 
@@ -139,7 +138,8 @@
                           <div class="form-group">
                               <label class="col-sm-4">TO DATE:</label>
                               <div class="col-sm-8">
-                                <input type="date" name="to_date" id='todate' class="form-control"  autocomplete="off"/>
+                                <!--<input type="date" name="to_date" id='todate' class="form-control"  autocomplete="off"/> -->
+				                                        <input type="text" name="destination" id='destination' class="form-control"  autocomplete="off"/>
                               </div>
                           </div>
                       </form>
