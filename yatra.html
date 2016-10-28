@@ -5,7 +5,6 @@
   <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="stylesheets/style.css" type="text/css" />
   <link rel="stylesheet" href="stylesheets/font-icons.css" type="text/css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
@@ -14,7 +13,7 @@
 </script>
 <script>
 
-var service = 'http://sureshgorakala.github.io/result.json';
+var service = 'http://localhost/DistributedDataSystem/Service.svc/';
 
 $(document).ready(function(){
 
@@ -23,15 +22,23 @@ $(document).ready(function(){
     $.ajax(
     {
         type: "GET",
-        url: service,
+        url: service + '/GetAllCountries/',
         data: "{}",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         cache: false,
-      alert("asdasdas");
         success: function (data) {
             
-        alert(data);,
+        var trHTML = '';
+                
+        $.each(data.Countries, function (i, item) {
+            
+            trHTML += '<tr><td>' + data.Countries[i] + '</td><td>' + data.Cities[i] + '</td></tr>';
+        });
+        
+        $('#location').append(trHTML);
+        
+        },
         
         error: function (msg) {
             
