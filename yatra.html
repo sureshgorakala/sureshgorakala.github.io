@@ -38,8 +38,9 @@
 
                   // Javascript function JSON.parse to parse JSON data
                   var jsonObj = http_request.responseText;
+		       alert(jsonObj)
 //var jsontext = '{"Origin": "Kochi","Desti":"Banglore", "toDate":"20-10-2016","fromDate":"01-10-2016"}';
-var contact = JSON.parse(jsonObj);
+		var contact = JSON.parse(jsonObj);
 		       alert(contact.fromDate)
                   // jsonObj variable now contains the data structure and can
                   // be accessed as jsonObj.name and jsonObj.country.
