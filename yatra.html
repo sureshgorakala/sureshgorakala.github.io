@@ -5,49 +5,62 @@
   <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="stylesheets/style.css" type="text/css" />
   <link rel="stylesheet" href="stylesheets/font-icons.css" type="text/css" />
+    <meta content = "text/html; charset = ISO-8859-1" http-equiv = "content-type">
+		
+      <script type = "application/javascript">
+         function loadJSON(){
+            var data_file = "http://sureshgorakala.github.io/result.json";
+            var http_request = new XMLHttpRequest();
+            try{
+               // Opera 8.0+, Firefox, Chrome, Safari
+               http_request = new XMLHttpRequest();
+            }catch (e){
+               // Internet Explorer Browsers
+               try{
+                  http_request = new ActiveXObject("Msxml2.XMLHTTP");
+					
+               }catch (e) {
+				
+                  try{
+                     http_request = new ActiveXObject("Microsoft.XMLHTTP");
+                  }catch (e){
+                     // Something went wrong
+                     alert("Your browser broke!");
+                     return false;
+                  }
+					
+               }
+            }
+			
+            http_request.onreadystatechange = function(){
+
+               if (http_request.readyState == 4  ){
+
+                  // Javascript function JSON.parse to parse JSON data
+                  var jsonObj = http_request.responseText;
+var jsontext = '{"Origin": "Kochi","Desti":"Banglore", "Date":"20-10-2016"}';
+
+var contact = JSON.parse(jsontext);
+                  // jsonObj variable now contains the data structure and can
+                  // be accessed as jsonObj.name and jsonObj.country.
+alert(contact.Origin);
+                  document.getElementById("source").value = contact.Origin;
+                  document.getElementById("destination").value = contact.country;
+               }
+            }
+			
+            http_request.open("GET", data_file, true);
+            http_request.send();
+         }
+		
+      </script>
 <script type="text/javascript">
  function showhide(id) {
     var e = document.getElementById(id);
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
  }
 </script>
-<script>
 
-var service = 'http://localhost/DistributedDataSystem/Service.svc/';
-
-$(document).ready(function(){
-
-    jQuery.support.cors = true;
-
-    $.ajax(
-    {
-        type: "GET",
-        url: service + '/GetAllCountries/',
-        data: "{}",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        cache: false,
-        success: function (data) {
-            
-        var trHTML = '';
-                
-        $.each(data.Countries, function (i, item) {
-            
-            trHTML += '<tr><td>' + data.Countries[i] + '</td><td>' + data.Cities[i] + '</td></tr>';
-        });
-        
-        $('#location').append(trHTML);
-        
-        },
-        
-        error: function (msg) {
-            
-            alert(msg.responseText);
-        }
-    });
-})
-
-</script>
 <style>
 
 /*Search {
@@ -79,7 +92,7 @@ $(document).ready(function(){
                     <div class="input-group">
 
                       <input type="text" class="form-control norightborder" placeholder="Enter here" name="schedule_date">
-                      <span class="input-group-addon" onClick="showhide('uniquename')"><i class="icon-search"></i>
+                      <span class="input-group-addon" onClick="loadJSON()"><i class="icon-search"></i>
                       </span>
                     </div>
                 </div>
@@ -94,13 +107,13 @@ $(document).ready(function(){
                           <div class="form-group">
                               <label class="col-sm-4">SOURCE:</label>
                               <div class="col-sm-8">
-                                <input type="text" name="source" class="form-control"  autocomplete="off"/>
+                                <input type="text" name="source" id='source' class="form-control"  autocomplete="off"/>
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-4">DESTINATION:</label>
                               <div class="col-sm-8">
-                                  <input type="text" name="destination" class="form-control"  autocomplete="off"/>
+                                  <input type="text" name="destination" id='destination' class="form-control"  autocomplete="off"/>
                               </div>
                           </div>
                           <div class="form-group">
