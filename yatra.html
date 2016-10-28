@@ -38,12 +38,12 @@
 
                   // Javascript function JSON.parse to parse JSON data
                   var jsonObj = http_request.responseText;
-var jsontext = '{"Origin": "Kochi","Desti":"Banglore", "toDate":"20-10-2016","fromDate":"01-10-2016"}';
-
-var contact = JSON.parse(jsontext);
+//var jsontext = '{"Origin": "Kochi","Desti":"Banglore", "toDate":"20-10-2016","fromDate":"01-10-2016"}';
+alert()
+var contact = JSON.parse(jsonObj);
                   // jsonObj variable now contains the data structure and can
                   // be accessed as jsonObj.name and jsonObj.country.
-alert(document.getElementById("fromdate").value);
+
                   document.getElementById("source").value = contact.Origin;
                   document.getElementById("destination").value = contact.Desti;
 		  document.getElementById("fromdate").value = contact.fromDate;
