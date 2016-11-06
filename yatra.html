@@ -11,8 +11,9 @@
          function loadJSON(){
             //var data_file = "http://sureshgorakala.github.io/result.json";
 		 var str = document.getElementById("tbxInput").value
-		 alert(str);
-		var data_file = "http://ec2-52-88-155-30.us-west-2.compute.amazonaws.com/freeui/ads.json";
+		 //alert(str);
+		var data_file = "http://ec2-52-88-155-30.us-west-2.compute.amazonaws.com/freeui/"+str;
+		 alert(data_file);
             var http_request = new XMLHttpRequest();
             try{
                // Opera 8.0+, Firefox, Chrome, Safari
