@@ -10,6 +10,8 @@
       <script type = "application/javascript">
          function loadJSON(){
             //var data_file = "http://sureshgorakala.github.io/result.json";
+		 var str = document.getElementById("tbxInput").value
+		 alert(str);
 		var data_file = "http://ec2-52-88-155-30.us-west-2.compute.amazonaws.com/freeui/ads.json";
             var http_request = new XMLHttpRequest();
             try{
@@ -96,7 +98,7 @@ if (jsonObj.length > 10){
                 <div class="col-sm-offset-4 col-sm-5 col-xs-offset-4 col-xs-5">
                     <div class="input-group">
 
-                      <input type="text" class="form-control norightborder" placeholder="Enter here" name="schedule_date">
+                      <input type="text" id='tbxInput' class="form-control norightborder" placeholder="Enter here" name="schedule_date">
                       <span class="input-group-addon" onClick="loadJSON()"><i class="icon-search"></i>
                       </span>
                     </div>
