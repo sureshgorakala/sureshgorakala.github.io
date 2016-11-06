@@ -13,7 +13,7 @@
 		 var str = document.getElementById("tbxInput").value
 		 //alert(str);
 		var data_file = "http://ec2-52-88-155-30.us-west-2.compute.amazonaws.com/freeui/"+str;
-		 alert(data_file);
+		 //alert(data_file);
             var http_request = new XMLHttpRequest();
             try{
                // Opera 8.0+, Firefox, Chrome, Safari
@@ -42,7 +42,7 @@
 
                   // Javascript function JSON.parse to parse JSON data
                   var jsonObj = http_request.responseText;
-
+alert(jsonObj);
 //var jsontext = '{"Origin": "Kochi","Desti":"Banglore", "toDate":"20-10-2016","fromDate":"01-10-2016"}';
 		var contact = JSON.parse(jsonObj);
                   // jsonObj variable now contains the data structure and can
