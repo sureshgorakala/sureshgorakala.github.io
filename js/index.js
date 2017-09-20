@@ -33,7 +33,7 @@ function chatbotResponse() {
   if (lastUserMessage === 'name') {
     botMessage = 'My name is ' + botName;
   }
-   
+   alert('hi')
 }
 //****************************************************************
 //****************************************************************
