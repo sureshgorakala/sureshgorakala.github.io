@@ -34,7 +34,7 @@ var messages = [], //array that hold the record of each string in chat
 function chatbotResponse() {
   talking = true;
   
-	var data_file = "https://sureshgorakala.pythonanywhere.com/get/how are you?";
+	var data_file = "https://sureshgorakala.pythonanywhere.com/get/"+lastUserMessage;
             var http_request = new XMLHttpRequest();
             try{
                // Opera 8.0+, Firefox, Chrome, Safari
