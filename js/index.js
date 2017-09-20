@@ -19,18 +19,6 @@ var messages = [], //array that hold the record of each string in chat
 //****************************************************************
 //edit this function to change what the chatbot says
 
-var HttpClient = function() {
-    this.get = function(aUrl, aCallback) {
-        var anHttpRequest = new XMLHttpRequest();
-        anHttpRequest.onreadystatechange = function() { 
-            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                aCallback(anHttpRequest.responseText);
-        }
-
-        anHttpRequest.open( "GET", aUrl, true );            
-        anHttpRequest.send( null );
-    }
-}
 
 
 function chatbotResponse() {
@@ -45,6 +33,22 @@ function chatbotResponse() {
   if (lastUserMessage === 'name') {
     botMessage = 'My name is ' + botName;
   }*/
+  
+  
+  var HttpClient = function() {
+    this.get = function(aUrl, aCallback) {
+        var anHttpRequest = new XMLHttpRequest();
+        anHttpRequest.onreadystatechange = function() { 
+            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                aCallback(anHttpRequest.responseText);
+        }
+
+        anHttpRequest.open( "GET", aUrl, true );            
+        anHttpRequest.send( null );
+    }
+}
+
+  
   
   var client = new HttpClient();
 client.get("http://localhost:5000/get/"+lastUserMessage , function(response) {
