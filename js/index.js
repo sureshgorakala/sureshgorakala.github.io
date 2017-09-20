@@ -22,13 +22,25 @@ function chatbotResponse() {
   talking = true;
   botMessage = "I'm confused"; //the default message
 
-  if (lastUserMessage === 'hi') {
+/*  if (lastUserMessage === 'hi') {
     botMessage = 'Howdy!';
   }
 
   if (lastUserMessage === 'name') {
     botMessage = 'My name is ' + botName;
-  }
+  } */
+  
+  URL = "http://localhost:5000/get/" + lastUserMessage;  //Your URL
+
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = callbackFunction(xmlhttp);
+xmlhttp.open("GET", URL, false);
+xmlhttp.setRequestHeader("Content-Type", "application/json");
+xmlhttp.setRequestHeader('Authorization', 'Basic ' + window.btoa('apiusername:apiuserpassword')); 
+xmlhttp.onreadystatechange = callbackFunction(xmlhttp);
+xmlhttp.send();
+botMessage= xmlhttp.responseText
+
   
   
 }
