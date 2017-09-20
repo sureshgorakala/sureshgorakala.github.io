@@ -39,8 +39,8 @@ xmlhttp.open("GET", URL, false);
 xmlhttp.setRequestHeader("Content-Type", "application/json");
 xmlhttp.setRequestHeader('Authorization', 'Basic ' + window.btoa('apiusername:apiuserpassword')); 
 xmlhttp.onreadystatechange = callbackFunction(xmlhttp);
-xmlhttp.send();
-  alert(xmlhttp.responseText)
+//xmlhttp.send();
+//alert(xmlhttp.responseText)
 botMessage= xmlhttp.responseText
 
   
