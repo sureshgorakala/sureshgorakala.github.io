@@ -26,15 +26,15 @@ function chatbotResponse() {
   botMessage = "I'm confused"; //the default message
 
   
- /* if (lastUserMessage === 'hi') {
+ if (lastUserMessage === 'hi') {
     botMessage = 'Howdy!';
   }
 
   if (lastUserMessage === 'name') {
     botMessage = 'My name is ' + botName;
-  }*/
-  
-  
+  }
+  alert(botMessage)
+   /*
   var HttpClient = function() {
     this.get = function(aUrl, aCallback) {
         var anHttpRequest = new XMLHttpRequest();
@@ -53,7 +53,7 @@ function chatbotResponse() {
   var client = new HttpClient();
 client.get("http://localhost:5000/get/"+lastUserMessage , function(response) {
     botMessage  = response
-});
+}); */
 
   
   
