@@ -25,7 +25,7 @@ function chatbotResponse() {
   talking = true;
   botMessage = "I'm confused"; //the default message
 
-  
+/*  
  if (lastUserMessage === 'hi') {
     botMessage = 'Howdy!';
   }
@@ -33,7 +33,24 @@ function chatbotResponse() {
   if (lastUserMessage === 'name') {
     botMessage = 'My name is ' + botName;
   }
-   alert('hi')
+*/
+  var request = new XMLHttpRequest();
+request.onreadystatechange = function() {
+    if (request.readyState === 4) {
+        if (request.status === 200) {
+            document.body.className = 'ok';
+            console.log(request.responseText);
+        } else {
+            document.body.className = 'error';
+        }
+    }
+};
+request.open("GET", url , true);
+request.send(null);
+botMessage = request.responseText;
+
+
+
 }
 //****************************************************************
 //****************************************************************
