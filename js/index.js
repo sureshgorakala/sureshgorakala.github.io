@@ -34,8 +34,7 @@ function chatbotResponse() {
 
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = callbackFunction(xmlhttp);
-  alert(URL);
-xmlhttp.open("GET", URL, false);
+xmlhttp.open("GET", URL, True);
 xmlhttp.setRequestHeader("Content-Type", "application/json");
 xmlhttp.setRequestHeader('Authorization', 'Basic ' + window.btoa('apiusername:apiuserpassword')); 
 xmlhttp.onreadystatechange = callbackFunction(xmlhttp);
