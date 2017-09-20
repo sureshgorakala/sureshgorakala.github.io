@@ -19,11 +19,7 @@ var messages = [], //array that hold the record of each string in chat
 //****************************************************************
 //edit this function to change what the chatbot says
 
-
-
-function chatbotResponse() {
-  talking = true;
-  botMessage = "I'm confused"; //the default message
+//botMessage = "I'm confused"; //the default message
 
 /*  
  if (lastUserMessage === 'hi') {
@@ -34,7 +30,11 @@ function chatbotResponse() {
     botMessage = 'My name is ' + botName;
   }
 */
-		var data_file = "https://sureshgorakala.pythonanywhere.com/get/how are you?";
+
+function chatbotResponse() {
+  talking = true;
+  
+	var data_file = "https://sureshgorakala.pythonanywhere.com/get/how are you?";
             var http_request = new XMLHttpRequest();
             try{
                // Opera 8.0+, Firefox, Chrome, Safari
